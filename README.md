@@ -5,8 +5,14 @@ Spark cmd in chat room with the support of the bot
 * [node-sparky](https://www.npmjs.com/package/node-sparky)
 * [node-flint](https://www.npmjs.com/package/node-flint)
 
+
 ## Features
 [Features list](FEATURES.md)
+
+## ToDo
+* Second parameter of some commands
+* Set token valid on environment (can be session)
+* Detail of items (by detail option in arg list?)
 
 ## Install
 * Clone localy
@@ -31,15 +37,21 @@ cp config.js.default config.js
 vi config.js
 ```
 * Run the application, two configuration availables
-* 1/ For the dev, node is used
+* * For the **dev**, node is used
 ```bash
 ./app manual
 ```
-* 2/ For the prod, pm2 is used (install also this dependency)
+* * For the **prod**, pm2 is used (install also this dependency)
 ```bash
 ./app [start|stop|restart|show|staus|log]
 ```
 * Add the bot in Cisco Spark space and chat with him
+* * In **1:1**
+```bash
+@ roomsGet
+```
+* * In **team chat**
 ```bash
 @SparkBotCmd roomsGet
 ```
+
