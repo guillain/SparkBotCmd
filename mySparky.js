@@ -11,7 +11,7 @@ exports.sparky = function (bot, trigger) {
     var cmd = trigger.args['1'];
     var opt  = trigger.args['2'] || '';
     var optsec  = trigger.args['3'] || '';
-    var helpMsg = 'Argument missing, try **' + trigger.args + ' help** \n';
+    var helpMsg = 'Argument missing, try **@' + config.sparkbot + ' help** \n';
   
     var Spark = require('node-sparky');
     var spark = new Spark({ token: config.token  });
@@ -29,7 +29,7 @@ exports.sparky = function (bot, trigger) {
       tosay  = config.sparkbot + ' [ command ] [ option ] [ secondary option ]\n\n';
       tosay += 'Demo... it\'s ongoing...\n';
       tosay += '* _No second parameter is taken into account... at this time_\n';
-      tosay += '* _Token is managed on app level, not session... at this time_\n';
+      tosay += '* _Token is managed on app level, not session... at this time_\n\n';
       tosay += 'Commands available\n';
       tosay += '* setToken(token), return String \n';
       tosay += '* contentGet(contentId), return <File> \n';
@@ -211,12 +211,9 @@ exports.sparky = function (bot, trigger) {
     }
 
     else if (cmd == 'peopleGet') {
-      if (opt == '') { bot.say(helpMsg); }
-      else {
-        spark.peopleGet(opt)
-          .then(function(items) { items.forEach(function(item) { bot.say('* ' + item.displayName + ', id:' + item.id); }); })
-          .catch(function(err) { bot.say(cmd + ' error'); console.log(err); });
-      }
+      spark.peopleGet()
+        .then(function(items) { items.forEach(function(item) { bot.say('* ' + item.displayName + ', id:' + item.id); }); })
+        .catch(function(err) { bot.say(cmd + ' error'); console.log(err); });
     }
 
     else if (cmd == 'personGet') {
@@ -229,12 +226,9 @@ exports.sparky = function (bot, trigger) {
     }
 
     else if (cmd == 'personMe') {
-      if (opt == '') { bot.say(helpMsg); }
-      else {
-        spark.personMe(opt)
-          .then(function(item) { bot.say(cmd + ' done'); })
-          .catch(function(err) { bot.say(cmd + ' error'); console.log(err); });
-      }
+      spark.personMe()
+        .then(function(item) { bot.say('* ' + item.displayName + ', id:' + item.id); })
+        .catch(function(err) { bot.say(cmd + ' error'); console.log(err); });
     }
 
     else if (cmd == 'personAdd') {
