@@ -1,0 +1,34 @@
+{
+  "name": "sparkbotcmd",
+  "version": "1.0.0",
+  "description": "Spark command in chat bot",
+  "main": "sparkbotcmd.js",
+  "dependencies": {
+    "config": "^1.25.1",
+    "node-sparky": "^4.0.8",
+    "node-flint": "^4.5.3",
+    "express": "^4.15.2",
+    "lodash": "^4.17.4",
+    "redis": "^2.7.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guillain/SparkBotCmd.git"
+  },
+  "keywords": [
+    "spark",
+    "bot",
+    "chat",
+    "command",
+    "cmd"
+  ],
+  "author": "Guillain",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/guillain/SparkBotCmd/issues"
+  },
+  "homepage": "https://github.com/guillain/SparkBotCmd#readme"
+}
