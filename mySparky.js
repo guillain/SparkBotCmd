@@ -7,7 +7,6 @@
 // Load config
 var config = require('./config');
 
-
 exports.sparky = function (bot, trigger) {
     var cmd = trigger.args['1'];
     var opt  = trigger.args['2'] || '';
@@ -28,6 +27,10 @@ exports.sparky = function (bot, trigger) {
     // Help command
     else if (cmd == 'help') { 
       tosay  = config.sparkbot + ' [ command ] [ option ] [ secondary option ]\n\n';
+      tosay += 'Demo... it\'s ongoing...\n';
+      tosay += '* _No second parameter is taken into account... at this time_\n';
+      tosay += '* _Token is managed on app level, not session... at this time_\n';
+      tosay += 'Commands available\n';
       tosay += '* setToken(token), return String \n';
       tosay += '* contentGet(contentId), return <File> \n';
       tosay += '* contentCreate(filePath, [timeout]), return <File> \n';
@@ -73,7 +76,7 @@ exports.sparky = function (bot, trigger) {
       tosay += '* webhookUpdate(webhook), return <Webhook> \n';
       tosay += '* webhookRemove(webhookId) \n';
       tosay += '* webhookAuth(secret, signature, payload), return String | Object \n';
-      tosay += '* webhookListen() . webhookHandler \n';
+      tosay += '* webhookListen(), return webhookHandler \n';
     }
     else  if (cmd == 'setToken') {
       if (opt == '') { bot.say(helpMsg); }
