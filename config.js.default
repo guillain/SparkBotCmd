@@ -1,0 +1,22 @@
+/**
+ * @file Main programme - SparkBotAdv
+ * @author guillain (guillain@gmail.com)
+ * @license GPL-3.0
+ */
+
+var config = {};
+
+config.name = 'SparkBotCmd';
+config.debug = '1';
+
+// Flint
+config.address = '0.0.0.0';
+config.port = '8080';
+
+// Spark
+config.sparkbot = 'SparkBotCmd@sparkbot.io';
+config.webhookUrl = 'http://ip-address:8080/flint';
+config.token = 'cisco spark bot token';
+
+// export config
+module.exports = config;
