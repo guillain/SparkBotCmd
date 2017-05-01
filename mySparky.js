@@ -136,9 +136,9 @@ exports.sparky = function (bot, trigger) {
     }
 
     else if (cmd == 'membershipAdd') {
-      if (opt == '') { bot.say(helpMsg); }
+      if (opt == '' || optsec == '') { bot.say(helpMsg); }
       else {
-        spark.membershipAdd(opt)
+        spark.membershipAdd(opt,optsec)
           .then(function(item) { bot.say(cmd + ' done'); })
           .catch(function(err) { bot.say(cmd + ' error'); console.log(err); });
       }
@@ -275,7 +275,7 @@ exports.sparky = function (bot, trigger) {
 
     else if (cmd == 'roomsGet') {
       spark.roomsGet()
-        .then(function(items) { items.forEach(function(item) { bot.say('* ' + item.title + ', id:' + item.id); }); })
+        .then(function(items) { console.log(items); items.forEach(function(item) { bot.say('* ' + item.title + ', id:' + item.id); }); })
         .catch(function(err) { bot.say(cmd + ' error'); console.log(err); });
     }
 
