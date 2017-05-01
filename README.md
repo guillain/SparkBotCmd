@@ -1,20 +1,26 @@
 # SparkBotCmd
-Spark cmd in chat room with the support of the bot
+Spark API cmd in chat room with the support of the bot.
 
-## Credit
+# Why
+The idea is simple: Why I can't used my chat space to drive my spark?
+This can be useful for:
+* Manage Cisco Spark environment (rooms, teams...)
+* Manage production bot by setting the bot token to this app, you ca have the list of webhook, rooms... where the bot is and use
+* Last chance of mirroring (room vs room chat replication)
+
+# Credit
 * [node-sparky](https://www.npmjs.com/package/node-sparky)
 * [node-flint](https://www.npmjs.com/package/node-flint)
 
-
-## Features
+# Features
 [Features list](FEATURES.md)
 
-## ToDo
+# ToDo
 * Second parameter of some commands
 * Set token valid on environment (can be session)
 * Detail of items (by detail option in arg list?)
 
-## Install
+# Install
 * Clone localy
 ```bash
 git clone https://github.com/guillain/SparkBotCmd.git
