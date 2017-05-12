@@ -15,7 +15,7 @@ config.port = '8080';
 
 // Spark
 config.sparkbot = 'SparkBotCmd@sparkbot.io';
-config.webhookUrl = 'http://ip-address:8080/flint';
+config.webhookUrl = 'http://'+config.address+':'+config.port+'/flint';
 config.token = 'cisco spark bot token';
 
 // export config
