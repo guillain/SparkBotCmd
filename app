@@ -1,7 +1,7 @@
 #!/bin/bash
 
 APP='sparkbotcmd.js'
-APP_DIR='/var/www/SparkBotCmd'
+APP_DIR='/var/www/bot/SparkBotCmd'
 LOG_DIR="${APP_DIR}/log"
 
 # For the manual mode and the tunneling
