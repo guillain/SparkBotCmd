@@ -7,11 +7,12 @@
 // Import module
 var Flint = require('node-flint');
 var webhook = require('node-flint/webhook');
-var RedisStore = require('node-flint/storage/redis'); // load driver
 var express = require('express');
 var bodyParser = require('body-parser');
+var Logstash = require('logstash-client');
 var _ = require('lodash');
 var app = express();
+var net = require('net');
 app.use(bodyParser.json());
 
 // Load config
@@ -22,9 +23,6 @@ var flint = new Flint(config);
 
 // My additionnal features
 var mySparky = require('./mySparky.js');
-
-// Use redis storage
-flint.storageDriver(new RedisStore('redis://127.0.0.1')); // select driver
 
 // Start flint
 flint.start();
@@ -39,6 +37,24 @@ flint.on('initialized', function() {
 
 flint.on('message', function(bot, trigger, id) {
   flint.debug('"%s" said "%s" in room "%s"', trigger.personEmail, trigger.text, trigger.roomTitle);
+  var sender = require('os').hostname();
+
+  // BigData storage
+  if (config.bigdata.enable == true) {
+    var message = {
+      'timestamp': new Date(),
+      'message': trigger.text,
+      'from': trigger.personEmail,
+      'spaceid': trigger.roomId,
+      'spacename': trigger.roomTitle,
+      'level': 'info',
+      'type': 'bot'
+    };
+   
+    var logstash = new Logstash({type:config.bigdata.type,host: config.bigdata.host, port: config.bigdata.port});
+    logstash.send(message);
+    flint.debug('Logstash recording should be ok');
+  }
 });
 
 
