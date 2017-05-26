@@ -18,5 +18,13 @@ config.sparkbot = 'SparkBotCmd@sparkbot.io';
 config.webhookUrl = 'http://'+config.address+':'+config.port+'/flint';
 config.token = 'cisco spark bot token';
 
+// BigData connector
+config.bigdata = {};
+config.bigdata.enable = true;
+config.bigdata.type = 'tcp';
+config.bigdata.host = '';
+config.bigdata.port = '5044';
+config.bigdata.auth = 'username:password';
+
 // export config
 module.exports = config;
